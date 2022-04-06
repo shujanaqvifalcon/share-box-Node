@@ -77,29 +77,7 @@ exports.myBox = async (req, res) => {
   }
 };
 
-exports.deleteFile = async (req, res) => {
-  try {
-    const fileId = req.params.fileId;
-    let FilesDb = await Files.findOneAndUpdate(
-      { files: { $elemMatch: { _id: fileId } } },
-      { $pull: { files: { _id: fileId } } },
-      { new: true }
-    );
-    if (FilesDb) {
-      if (FilesDb.files.length < 1) {
-        FilesDb = await Files.findByIdAndDelete(FilesDb._id);
-      }
-      FilesDb = await Files.find({ user: FilesDb.user });
-      return res.json({ success: true, FilesDb }); // Success
-    } else {
-      return res.json({ success: false, message: "File not deleted" }); // Success
-    }
-  } catch (err) {
-    // Error handling
-    console.log("Error ----> ", err);
-    res.status(500).json({ success: false, message: "Internal server error" });
-  }
-};
+
 //delete Many
 exports.deleteFiles = async (req, res) => {
   try {
@@ -127,28 +105,7 @@ exports.deleteFiles = async (req, res) => {
     res.status(500).json({ success: false, message: "Internal server error" });
   }
 };
-exports.download = async (req, res) => {
-  try {
-    let url = `http://localhost:5001/${req.body.e}`;
-    console.log(url, "e");
-    let filename = req.body.url;
-    const options = {
-      url: url,
-      dest: "./uploads", // will be saved to /path/to/dest/image.jpg
-    };
 
-    download
-      .image(options)
-      .then(({ filename }) => {
-        console.log("Saved to", filename); // saved to /path/to/dest/image.jpg
-      })
-      .catch((err) => console.error(err));
-  } catch (err) {
-    // Error handling
-    console.log("Error ----> ", err);
-    res.status(500).json({ success: false, message: "Internal server error" });
-  }
-};
 
 exports.deleteBox = async (req, res) => {
   try {

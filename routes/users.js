@@ -22,6 +22,8 @@ router.get("/:userId", users.getById); // Get one user by it's id
 //logout
 router.post("/logout", users.logout); //logout
 
+
+
 //logout
 
 // Export

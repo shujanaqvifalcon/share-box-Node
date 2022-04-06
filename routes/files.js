@@ -22,12 +22,11 @@ router.get("/:fileId", files.getById); // Get one user by it's id
 //post
 router.post("/ibox", files.myBox); // Get one user by it's id
 //deleteFile
-router.delete("/deleteFile/:fileId", files.deleteFile);
 router.post("/deleteBox",files.deleteBox)
 //deleteMany
-router.post("/deleteMany", files.deleteFiles);
+router.put("/deleteMany", files.deleteFiles);
 //Update Box
-router.put("/updateBox",upload.array("files"),files.updateBox)
+router.post("/updateBox",upload.array("files"),files.updateBox)
 
 // Export
 module.exports = router;
