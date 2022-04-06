@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Error</title>
+</head>
+<body>
+<pre>Error: ENOENT: no such file or directory, open &#39;/Users/falconitconsulting/Desktop/KidCab Node/uploads/quotes/0.09962690044569ZunairaAli.pdf&#39;</pre>
+</body>
+</html>
