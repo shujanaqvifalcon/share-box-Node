@@ -4,7 +4,7 @@
  */
 require("dotenv").config();
 const app = require("express")();
-const port = process.env.PORT || 5001;
+const port =8080;
 require("./database");
 
 // Middleware
